@@ -4,6 +4,7 @@
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
+    <link rel="stylesheet" href="bower_components/AngularJS-Toaster/toaster.min.css">
     <link href="app.less" type="text/css" rel="stylesheet/less">
 </head>
 <body>
@@ -22,6 +23,7 @@
 <script src="bower_components/angular-animate/angular-animate.js"></script>
 <script src="bower_components/angular-resource/angular-resource.js"></script>
 <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="bower_components/AngularJS-Toaster/toaster.min.js"></script>
 <!-- Add New Bower Component JS Above -->
 
 
@@ -31,6 +33,7 @@
 <script src="users/users.js"></script>
 <script src="modals/userModal/userModal.js"></script>
 <script src="services/modalService.js"></script>
+<script src="services/notificationService.js"></script>
 <!-- Add New Component JS Above -->
 
 <div>
@@ -41,6 +44,9 @@
             </div>
         </div>
     </div>
+    <toaster-container
+        toaster-options="{'time-out': { 'toast-success': 3000, 'toast-info': 5000, 'toast-warning': 10000, 'toast-error': 0},
+                          'icon-classes':{error: 'toast-error',info: 'toast-info',wait: 'toast-wait',success: 'toast-success',warning: 'toast-warning'}}"></toaster-container>
 </div>
 
 </body>
