@@ -1,6 +1,12 @@
 <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-10">
         <h1>{{users.title}}</h1>
+    </div>
+    <div class="col-sm-2">
+        <button class="btn btn-success float-right create-button" uib-tooltip="Create new user"
+                ng-click="users.createNewUser()">
+            <span class="fa fa-plus"></span>
+        </button>
     </div>
 </div>
 
@@ -11,12 +17,21 @@
             <th>Name</th>
             <th>Surname</th>
             <th>Email</th>
+            <th class="text-right">Actions</th>
             </thead>
             <tbody>
             <tr ng-repeat="user in users.users">
                 <td ng-bind="user.first_name"></td>
                 <td ng-bind="user.last_name"></td>
                 <td ng-bind="user.email"></td>
+                <td class="text-right">
+                    <button class="btn btn-default" uib-tooltip="Edit" ng-click="users.editUser(user)">
+                        <span class="fa fa-pencil-square-o"></span>
+                    </button>
+                    <button class="btn btn-danger" uib-tooltip="Delete" ng-click="users.deleteUser(user.id)">
+                        <span class="fa fa-trash"></span>
+                    </button>
+                </td>
             </tr>
             </tbody>
         </table>
