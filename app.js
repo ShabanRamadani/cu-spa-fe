@@ -1,9 +1,9 @@
-angular.module('cuSpaFe', ['ui.bootstrap', 'ui.router', 'ngAnimate', 'home']);
+angular.module('cuSpaFe', ['ui.bootstrap', 'ui.router', 'ngAnimate']);
 
 angular.module('cuSpaFe').config(function($stateProvider, $urlRouterProvider) {
 
     /* Add New States Above */
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/');
 
 });
 
