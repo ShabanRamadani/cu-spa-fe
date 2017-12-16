@@ -1,0 +1,51 @@
+<div>
+    <form class="form-horizontal" autocomplete="off" ng-submit="user.save()">
+        <div class="modal-header">
+            <button type="button" class="close pull-right" ng-click="user.close()" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">{{user.isNew ? 'Create User' : 'Edit User'}}</h4>
+        </div>
+        <div class="modal-body">
+
+            <div class="form-group">
+                <label for="name" class="col-sm-3">Name:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="name" ng-model="user.user.first_name" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="surname" class="col-sm-3">Surname:</label>
+                <div class="col-sm-9">
+                    <input type="text" id="surname" ng-model="user.user.last_name" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="col-sm-3">Email:</label>
+                <div class="col-sm-9">
+                    <input type="email" id="email" ng-model="user.user.email" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group" ng-if="user.isNew">
+                <label for="password" class="col-sm-3">Password:</label>
+                <div class="col-sm-9">
+                    <input type="password" id="password" ng-model="user.user.password" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group" ng-if="user.isNew">
+                <label for="password_confirm" class="col-sm-3">Password Confirmation:</label>
+                <div class="col-sm-9">
+                    <input type="password" id="password_confirm" ng-model="user.user.password_confirmation"
+                           class="form-control">
+                </div>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-default" ng-click="user.close()">Cancel</button>
+        </div>
+    </form>
+</div>
