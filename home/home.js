@@ -2,7 +2,17 @@ angular.module('home', ['ui.bootstrap', 'ui.router', 'ngAnimate']);
 
 angular.module('home').config(function ($stateProvider) {
 
-    /* Add New States Above */
+    $stateProvider.state('cuSpaFe.home', {
+        url: '/home',
+        views: {
+            'content': {
+                templateUrl: 'home/home.html',
+                controller: 'homeController',
+                controllerAs: 'home',
+                resolve: {}
+            }
+        }
+    });
 
 }).controller('homeController', function ($log, $interval) {
     $log.info('Home controller is now loaded');
