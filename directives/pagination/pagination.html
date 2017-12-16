@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div uib-pagination
+             boundary-links="true"
+             total-items="pagination.total"
+             ng-model="pagination.current_page"
+             items-per-page="pagination.per_page"
+             ng-change="search()"
+             class="pagination-sm pull-right"
+             max-size="5"
+             previous-text="&lsaquo;"
+             next-text="&rsaquo;"
+             first-text="&laquo;"
+             last-text="&raquo;">
+        </div>
+    </div>
+</div>
