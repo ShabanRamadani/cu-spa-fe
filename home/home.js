@@ -11,7 +11,8 @@ angular.module('home').config(function ($stateProvider) {
                 controllerAs: 'home',
                 resolve: {}
             }
-        }
+        },
+        pageTitle: 'Home'
     });
 
 }).controller('homeController', function ($log, $interval) {

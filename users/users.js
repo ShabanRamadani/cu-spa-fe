@@ -17,7 +17,8 @@ angular.module('users').config(function ($stateProvider) {
                     }
                 }
             }
-        }
+        },
+        pageTitle: 'Users'
     });
 
 }).controller('usersController', function ($log, users, $http, $uibModal, modalService) {
