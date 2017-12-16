@@ -2,7 +2,7 @@
   "generator-cg-angular": {
     "uirouter": true,
     "partialDirectory": "partial/",
-    "modalDirectory": "partial/",
+    "modalDirectory": "modals/",
     "directiveDirectory": "directive/",
     "filterDirectory": "filter/",
     "serviceDirectory": "service/",
