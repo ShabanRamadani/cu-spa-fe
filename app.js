@@ -1,4 +1,4 @@
-angular.module('cuSpaFe', ['ui.bootstrap', 'ui.router', 'ngAnimate', 'home', 'users']);
+angular.module('cuSpaFe', ['ui.bootstrap', 'ui.router', 'ngAnimate', 'toaster', 'home', 'users']);
 
 angular.module('cuSpaFe').config(function ($stateProvider, $urlRouterProvider) {
 
@@ -14,7 +14,7 @@ angular.module('cuSpaFe').config(function ($stateProvider, $urlRouterProvider) {
                 '@': {
                     template: '<div ui-view="content"></div>',
                     controller: function ($log) {
-                        $log.info('App is now loaded')
+                        $log.info('App is now loaded');
                     }
                 }
             },

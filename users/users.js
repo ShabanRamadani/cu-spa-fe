@@ -20,7 +20,7 @@ angular.module('users').config(function ($stateProvider) {
         }
     });
 
-}).controller('usersController', function ($log, users, $http, $uibModal, $filter) {
+}).controller('usersController', function ($log, users, $http, $uibModal, modalService) {
     $log.info('User controller is now loaded');
     var vm = this;
     vm.title = 'Users';
@@ -58,11 +58,12 @@ angular.module('users').config(function ($stateProvider) {
     };
 
     vm.deleteUser = function (id) {
-        $http.delete('http://localhost:8000/api/v1/users/' + id).then(function () {
-            internalSearch();
+        modalService.modalConfirmation().then(function () {
+            $http.delete('http://localhost:8000/api/v1/users/' + id).then(function () {
+                internalSearch();
+            });
         });
     };
-
 
 });
 
