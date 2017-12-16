@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-sm-12">
+        <h1>{{users.title}}</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <table class="table table-responsive">
+            <thead>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Email</th>
+            </thead>
+            <tbody>
+            <tr ng-repeat="user in users.users">
+                <td ng-bind="user.first_name"></td>
+                <td ng-bind="user.last_name"></td>
+                <td ng-bind="user.email"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

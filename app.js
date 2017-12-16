@@ -1,4 +1,4 @@
-angular.module('cuSpaFe', ['ui.bootstrap', 'ui.router', 'ngAnimate', 'home']);
+angular.module('cuSpaFe', ['ui.bootstrap', 'ui.router', 'ngAnimate', 'home', 'users']);
 
 angular.module('cuSpaFe').config(function ($stateProvider, $urlRouterProvider) {
 
@@ -19,17 +19,6 @@ angular.module('cuSpaFe').config(function ($stateProvider, $urlRouterProvider) {
                 }
             },
             resolve: {}
-        })
-        .state('cuSpaFe.home', {
-            url: '/home',
-            views: {
-                'content': {
-                    templateUrl: 'home/home.html',
-                    controller: 'homeController',
-                    controllerAs: 'home',
-                    resolve: {}
-                }
-            }
         });
 
     $urlRouterProvider.otherwise('/home');
