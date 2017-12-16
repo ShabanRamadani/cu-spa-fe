@@ -1,4 +1,12 @@
-angular.module('cuSpaFe', ['ui.bootstrap', 'ui.router', 'ngAnimate', 'toaster', 'home', 'users']);
+angular.module('cuSpaFe', [
+    'ui.bootstrap',
+    'ui.router',
+    'ngAnimate',
+    'toaster',
+    'angular-loading-bar',
+    'home',
+    'users'
+]);
 
 angular.module('cuSpaFe').config(function ($stateProvider, $urlRouterProvider) {
 

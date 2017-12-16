@@ -21,6 +21,7 @@
     "moment": "~2.12",
     "less.js": "~2.6",
     "font-awesome": "~4.5",
-    "AngularJS-Toaster": "^2.2.0"
+    "AngularJS-Toaster": "^2.2.0",
+    "angular-loading-bar": "^0.9.0"
   }
 }
