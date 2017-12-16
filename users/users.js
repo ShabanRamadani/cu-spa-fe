@@ -9,27 +9,26 @@ angular.module('users').config(function ($stateProvider) {
                 templateUrl: 'users/users.html',
                 controller: 'usersController',
                 controllerAs: 'users',
-                resolve: {
-                    users: function ($http) {
-                        return $http.get('http://localhost:8000/api/v1/users').then(function (response) {
-                            return response.data.data;
-                        });
-                    }
-                }
+                resolve: {}
             }
         },
         pageTitle: 'Users'
     });
 
-}).controller('usersController', function ($log, users, $http, $uibModal, modalService) {
+}).controller('usersController', function ($log, $http, $uibModal, modalService, $location) {
     $log.info('User controller is now loaded');
     var vm = this;
     vm.title = 'Users';
-    vm.users = users;
 
-    function internalSearch () {
-        $http.get('http://localhost:8000/api/v1/users').then(function (response) {
+    function internalSearch (pageNumber) {
+        var endpoint = 'http://localhost:8000/api/v1/users';
+        if (!pageNumber || isNaN(parseInt(pageNumber))) {
+            pageNumber = 1;
+        }
+        $location.search('page', pageNumber);
+        $http.get(endpoint + '?page=' + pageNumber).then(function (response) {
             vm.users = response.data.data;
+            vm.paginationData = response.data.meta.pagination;
         });
     }
 
@@ -65,6 +64,12 @@ angular.module('users').config(function ($stateProvider) {
             });
         });
     };
+
+    vm.search = function () {
+        internalSearch(vm.paginationData.current_page);
+    };
+
+    internalSearch($location.search()['page']);
 
 });
 
