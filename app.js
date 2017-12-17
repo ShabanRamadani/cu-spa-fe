@@ -4,11 +4,13 @@ angular.module('cuSpaFe', [
     'ngAnimate',
     'toaster',
     'angular-loading-bar',
+    'satellizer',
     'home',
-    'users'
+    'users',
+    'login'
 ]);
 
-angular.module('cuSpaFe').config(function ($stateProvider, $urlRouterProvider) {
+angular.module('cuSpaFe').config(function ($stateProvider, $urlRouterProvider, $authProvider) {
 
     /* Add New States Above */
 
@@ -17,7 +19,16 @@ angular.module('cuSpaFe').config(function ($stateProvider, $urlRouterProvider) {
             abstract: true,
             views: {
                 'header': {
-                    templateUrl: 'header/header.html'
+                    templateUrl: 'header/header.html',
+                    controller: function ($auth, $scope, $http, $state) {
+                        $scope.isAuthenticated = $auth.isAuthenticated;
+                        $scope.logout = function () {
+                            $http.post('http://localhost:8000/api/v1/logout', {token: $auth.getToken()}).then(function () {
+                                $auth.logout();
+                                $state.go('cuSpaFe.login');
+                            });
+                        }
+                    }
                 },
                 '@': {
                     template: '<div ui-view="content"></div>',
@@ -30,6 +41,10 @@ angular.module('cuSpaFe').config(function ($stateProvider, $urlRouterProvider) {
         });
 
     $urlRouterProvider.otherwise('/home');
+
+    $authProvider.loginUrl = 'http://localhost:8000/api/v1/login';
+    $authProvider.tokenName = 'cuSpa';
+    $authProvider.tokenPrefix = 'cuSpa';
 
 });
 

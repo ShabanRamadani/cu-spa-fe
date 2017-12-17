@@ -31,6 +31,10 @@
       {
         "name": "users",
         "file": "users\\users.js"
+      },
+      {
+        "name": "login",
+        "file": "login\\login.js"
       }
     ]
   }
