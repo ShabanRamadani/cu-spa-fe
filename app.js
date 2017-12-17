@@ -5,9 +5,12 @@ angular.module('cuSpaFe', [
     'toaster',
     'angular-loading-bar',
     'satellizer',
+    'ngMap',
     'home',
     'users',
-    'login'
+    'login',
+    'locations',
+    'events'
 ]);
 
 angular.module('cuSpaFe').config(function ($stateProvider, $urlRouterProvider, $authProvider, $httpProvider) {
@@ -27,7 +30,7 @@ angular.module('cuSpaFe').config(function ($stateProvider, $urlRouterProvider, $
                                 $auth.logout();
                                 $state.go('cuSpaFe.login');
                             });
-                        }
+                        };
                     }
                 },
                 '@': {

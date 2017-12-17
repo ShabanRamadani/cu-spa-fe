@@ -15,7 +15,7 @@ angular.module('users').config(function ($stateProvider) {
         pageTitle: 'Users'
     });
 
-}).controller('usersController', function ($log, $http, $uibModal, modalService, $location) {
+}).controller('usersController', function ($log, $http, $uibModal, modalService, $location, notificationService) {
     $log.info('User controller is now loaded');
     var vm = this;
     vm.title = 'Users';
@@ -61,6 +61,8 @@ angular.module('users').config(function ($stateProvider) {
         modalService.modalConfirmation().then(function () {
             $http.delete('http://localhost:8000/api/v1/users/' + id).then(function () {
                 internalSearch();
+            }, function (error) {
+                notificationService.error(error);
             });
         });
     };
