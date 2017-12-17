@@ -23,6 +23,7 @@
     "font-awesome": "~4.5",
     "AngularJS-Toaster": "^2.2.0",
     "angular-loading-bar": "^0.9.0",
-    "satellizer": "^0.15.5"
+    "satellizer": "^0.15.5",
+    "ngmap": "^1.18.4"
   }
 }
