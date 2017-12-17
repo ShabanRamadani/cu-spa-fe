@@ -1,0 +1,47 @@
+<form class="form-horizontal" autocomplete="off" ng-submit="event.save()">
+    <div class="form-group">
+        <div class="col-sm-12">
+            <h1>{{event.isNew ? 'Create Event' : 'Edit Event'}}</h1>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-4">
+            <label for="name" class="control-label">Title</label>
+            <input type="text" class="form-control" id="name" ng-model="event.event.title">
+        </div>
+        <div class="col-sm-4">
+            <label for="speaker" class="control-label">Speaker</label>
+            <select name="speaker" id="speaker" class="form-control"
+                    ng-model="event.event.speaker"
+                    ng-change="event.setForeignKey('speaker_id', event.event.speaker.id)"
+                    ng-options="speaker as speaker.first_name + ' ' + speaker.last_name for speaker in event.speakers track by speaker.id">
+                <option value="">Speaker</option>
+            </select>
+        </div>
+        <div class="col-sm-4">
+            <label for="location" class="control-label">Location</label>
+            <select name="location" id="location" class="form-control"
+                    ng-model="event.event.location"
+                    ng-change="event.setForeignKey('location_id', event.event.location.id)"
+                    ng-options="location as location.name for location in event.locations track by location.id">
+                <option value="">Location</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-8">
+            <label for="description" class="control-label">Description</label>
+            <textarea rows="3" id="description" class="form-control no-resize"
+                      ng-model="event.event.description"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-12">
+            <button class="btn btn-warning" type="button" ng-click="event.back()">Cancel</button>
+            <button class="btn btn-success" type="submit">Save</button>
+        </div>
+    </div>
+</form>

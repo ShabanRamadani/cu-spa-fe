@@ -10,7 +10,7 @@ angular.module('locations').controller('locationController', function (location,
     }
 
     var initMarker = function (lat, lng) {
-        marker = new google.maps.Marker({
+        var marker = new google.maps.Marker({
             map: map,
             position: new google.maps.LatLng(lat, lng),
             draggable: true
@@ -25,7 +25,7 @@ angular.module('locations').controller('locationController', function (location,
     function initMap () {
         NgMap.getMap({id: 'giMap'}).then(function (evtMap) {
             map = evtMap;
-            initMarker(vm.mapCenter[0], vm.mapCenter[1])
+            initMarker(vm.mapCenter[0], vm.mapCenter[1]);
         });
     }
 

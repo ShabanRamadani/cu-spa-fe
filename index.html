@@ -44,14 +44,18 @@
 <script src="services/requestInterceptor.js"></script>
 <script src="locations/locations.js"></script>
 <script src="locations/location.js"></script>
+<script src="events/events.js"></script>
+<script src="events/event.js"></script>
 <!-- Add New Component JS Above -->
 
 <div>
     <div ui-view="header"></div>
     <div id="content" class="container">
         <div class="row">
-            <div ui-view>
-            </div>
+           <div class="col-sm-12">
+               <div ui-view>
+               </div>
+           </div>
         </div>
     </div>
     <toaster-container

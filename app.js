@@ -9,7 +9,8 @@ angular.module('cuSpaFe', [
     'home',
     'users',
     'login',
-    'locations'
+    'locations',
+    'events'
 ]);
 
 angular.module('cuSpaFe').config(function ($stateProvider, $urlRouterProvider, $authProvider, $httpProvider) {
@@ -29,7 +30,7 @@ angular.module('cuSpaFe').config(function ($stateProvider, $urlRouterProvider, $
                                 $auth.logout();
                                 $state.go('cuSpaFe.login');
                             });
-                        }
+                        };
                     }
                 },
                 '@': {

@@ -47,7 +47,7 @@ angular.module('locations').config(function ($stateProvider) {
         pageTitle: 'Location'
     });
 
-}).controller('locationsController', function ($log, $http, $uibModal, modalService, $location) {
+}).controller('locationsController', function ($log, $http, $uibModal, modalService, $location, notificationService) {
     $log.info('Location controller is now loaded');
     var vm = this;
     vm.title = 'Locations';
@@ -68,6 +68,8 @@ angular.module('locations').config(function ($stateProvider) {
         modalService.modalConfirmation().then(function () {
             $http.delete('http://localhost:8000/api/v1/locations/' + id).then(function () {
                 internalSearch();
+            }, function (error) {
+                notificationService.error(error);
             });
         });
     };
