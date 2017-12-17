@@ -10,7 +10,7 @@ angular.module('cuSpaFe', [
     'login'
 ]);
 
-angular.module('cuSpaFe').config(function ($stateProvider, $urlRouterProvider, $authProvider) {
+angular.module('cuSpaFe').config(function ($stateProvider, $urlRouterProvider, $authProvider, $httpProvider) {
 
     /* Add New States Above */
 
@@ -45,6 +45,8 @@ angular.module('cuSpaFe').config(function ($stateProvider, $urlRouterProvider, $
     $authProvider.loginUrl = 'http://localhost:8000/api/v1/login';
     $authProvider.tokenName = 'cuSpa';
     $authProvider.tokenPrefix = 'cuSpa';
+
+    $httpProvider.interceptors.push('requestInterceptor');
 
 });
 
