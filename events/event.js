@@ -5,11 +5,6 @@ angular.module('events').controller('eventController', function (event, NgMap, $
     vm.speakers = speakers;
     vm.locations = locations;
 
-    if (!vm.isNew) {
-        setForeignKey('speaker_id', vm.event.speaker.id);
-        setForeignKey('location_id', vm.event.location.id);
-    }
-
     function back () {
         history.back();
     }
@@ -34,6 +29,11 @@ angular.module('events').controller('eventController', function (event, NgMap, $
 
     function setForeignKey (column, value) {
         vm.event[column] = value;
+    }
+
+    if (!vm.isNew) {
+        setForeignKey('speaker_id', vm.event.speaker.id);
+        setForeignKey('location_id', vm.event.location.id);
     }
 
     vm.save = save;
