@@ -1,0 +1,30 @@
+<form class="form-horizontal" autocomplete="off" ng-submit="location.save()">
+    <div class="col-sm-12">
+        <h1>{{location.isNew ? 'Create Location' : 'Edit Location'}}</h1>
+    </div>
+    <div class="col-sm-6 no-padding">
+        <div class="from-group">
+            <label for="name" class="col-sm-12">Name</label>
+            <div class="col-sm-12">
+                <input type="text" class="form-control" id="name" ng-model="location.location.name">
+            </div>
+        </div>
+
+        <div class="from-group">
+            <label for="address" class="col-sm-12">Address</label>
+            <div class="col-sm-12">
+                <textarea rows="3" id="address" class="form-control no-resize"
+                          ng-model="location.location.address"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 no-padding">
+        <ng-map id="giMap" center="{{location.mapCenter}}" zoom="16" default-style="true"></ng-map>
+    </div>
+    <div class="col-sm-12">
+        <button class="btn btn-warning" type="button" ng-click="location.back()">Cancel</button>
+        <button class="btn btn-success" type="submit">Save</button>
+    </div>
+</form>
+
+

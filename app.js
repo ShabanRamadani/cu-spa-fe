@@ -5,9 +5,11 @@ angular.module('cuSpaFe', [
     'toaster',
     'angular-loading-bar',
     'satellizer',
+    'ngMap',
     'home',
     'users',
-    'login'
+    'login',
+    'locations'
 ]);
 
 angular.module('cuSpaFe').config(function ($stateProvider, $urlRouterProvider, $authProvider, $httpProvider) {

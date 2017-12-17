@@ -35,6 +35,10 @@
       {
         "name": "login",
         "file": "login\\login.js"
+      },
+      {
+        "name": "locations",
+        "file": "locations\\locations.js"
       }
     ]
   }
