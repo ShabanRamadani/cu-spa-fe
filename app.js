@@ -6,6 +6,7 @@ angular.module('cuSpaFe', [
     'angular-loading-bar',
     'satellizer',
     'ngMap',
+    'ngMessages',
     'home',
     'users',
     'login',
@@ -66,4 +67,10 @@ angular.module('cuSpaFe').run(function ($rootScope) {
         }
     };
 
-});
+}).run(['$templateCache', function ($templateCache) {
+    $templateCache.put('error-messages',
+        '<span class="help-block" ng-message="email">Value should be an valid email</span>\n' +
+        '<span class="help-block" ng-message="required">This field is required</span>\n' +
+        '');
+}]);
+
