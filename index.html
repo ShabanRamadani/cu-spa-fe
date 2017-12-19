@@ -29,6 +29,9 @@
 <script src="bower_components/satellizer/dist/satellizer.min.js"></script>
 <script src="bower_components/ngmap/build/scripts/ng-map.js"></script>
 <script src="bower_components/angular-messages/angular-messages.min.js"></script>
+<script src="bower_components/angular-translate/angular-translate.js"></script>
+<script src="bower_components/angular-dynamic-locale/dist/tmhDynamicLocale.min.js"></script>
+<script src="bower_components/moment/locale/it.js"></script>
 <!-- Add New Bower Component JS Above -->
 
 
@@ -47,16 +50,21 @@
 <script src="locations/location.js"></script>
 <script src="events/events.js"></script>
 <script src="events/event.js"></script>
+<script src="i18n/i18n.module.js"></script>
+<script src="i18n/i18n.it.js"></script>
+<script src="i18n/i18n.en.js"></script>
+<script src="i18n/locale/angular-locale_it.js"></script>
+<script src="i18n/locale/angular-locale_en.js"></script>
 <!-- Add New Component JS Above -->
 
 <div>
     <div ui-view="header"></div>
     <div id="content" class="container">
         <div class="row">
-           <div class="col-sm-12">
-               <div ui-view>
-               </div>
-           </div>
+            <div class="col-sm-12">
+                <div ui-view>
+                </div>
+            </div>
         </div>
     </div>
     <toaster-container

@@ -7,6 +7,9 @@ angular.module('cuSpaFe', [
     'satellizer',
     'ngMap',
     'ngMessages',
+    'pascalprecht.translate',
+    'tmh.dynamicLocale',
+    'i18n',
     'home',
     'users',
     'login',
@@ -54,7 +57,30 @@ angular.module('cuSpaFe').config(function ($stateProvider, $urlRouterProvider, $
 
 });
 
-angular.module('cuSpaFe').run(function ($rootScope) {
+angular.module('cuSpaFe').config(function (tmhDynamicLocaleProvider, $translateProvider, i18nIt, i18nEn) {
+
+    tmhDynamicLocaleProvider.localeLocationPattern('i18n/locale/angular-locale_{{locale}}.js');
+
+    $translateProvider
+        .translations('it', i18nIt)
+        .translations('en', i18nEn)
+        .preferredLanguage('en')
+        .fallbackLanguage('en')
+        .useSanitizeValueStrategy('sanitizeParameters');
+
+});
+
+angular.module('cuSpaFe').run(function ($rootScope, $translate, tmhDynamicLocale) {
+
+    var language = navigator.language.substring(0, 2);
+    if (language !== 'it') {
+        language = 'en';
+    }
+
+    $translate.use(language).then(function (data) {
+        tmhDynamicLocale.set(data);
+        moment.locale(data);
+    });
 
     $rootScope.safeApply = function (fn) {
         var phase = $rootScope.$$phase;

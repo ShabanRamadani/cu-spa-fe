@@ -21,7 +21,7 @@ angular.module('home').config(function ($stateProvider) {
     vm.title = 'Current Time';
 
     $interval(function () {
-        vm.date = moment().format('DD MMM YYYY HH:mm:ss');
+        vm.date = moment().format('DD MMMM YYYY HH:mm:ss');
     }, 1000);
 
 });
