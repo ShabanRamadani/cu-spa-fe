@@ -54,6 +54,7 @@ angular.module('cuSpaFe').config(function ($stateProvider, $urlRouterProvider, $
     $authProvider.tokenPrefix = 'cuSpa';
 
     $httpProvider.interceptors.push('requestInterceptor');
+    $httpProvider.interceptors.push('acceptLanguageInterceptor');
 
 });
 
